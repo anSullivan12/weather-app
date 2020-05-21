@@ -6,8 +6,13 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Weather',
-    component: () => import('../views/Weather.vue'),
+    name: 'Home',
+    component: () => import('../views/Home.vue'),
+  },
+  {
+    path: '/one-day-forecast',
+    name: 'OneDay',
+    component: () => import('../views/OneDay.vue'),
   },
 ];
 
