@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/weather">Weather</router-link>
+      <router-link :to="{ name: 'Home' }">Home</router-link> |
+      <router-link :to="{ name: 'OneDay' }">One Day Forecast</router-link>
     </div>
     <router-view/>
   </div>
