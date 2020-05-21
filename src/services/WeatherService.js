@@ -10,7 +10,7 @@ const apiClient = axios.create({
 });
 
 export default {
-  getData() {
-    return apiClient.get('/data');
+  getDetails() {
+    return apiClient.get('');
   },
 };
