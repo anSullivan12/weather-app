@@ -2,7 +2,7 @@
   <div class="mui-container weather">
     <h1 class="mui--text-display1">Local Weather for 44720</h1>
     <div class="mui-row mui-panel weather-results">
-      <div class="mui-col-md-8 mui--text-left" v-for="detail in details" :key="detail.id" :detail="detail">
+      <div class="mui-col-md-8 mui--text-left">
         <p class="mui-subhead">{{ detail.city_name }}, {{ detail.state_code }}</p>
         <p class="mui-subhead">Date</p>
         <span class="material-icons">wb_sunny</span>
@@ -26,9 +26,9 @@ export default {
     };
   },
   created() {
-    WeatherService.getData()
-      .then(response => {
-        this.details = response.data;
+    WeatherService.getDetails()
+      .then((response) => {
+        this.detail = response.data;
       });
   },
 };
