@@ -21,3 +21,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Weather',
+
+  data() {
+    return {
+      result: '',
+      responseAvailable: false,
+      apiKey: '25201b6605424961868883102857e8b9',
+    };
+  },
+};
+</script>
