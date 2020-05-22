@@ -22,7 +22,7 @@ export default {
   created() {
     WeatherService.getDetails()
       .then((response) => {
-        this.details = response.data;
+        this.details = response.data.data;
       })
       .catch((error) => {
         console.log(error.response);
