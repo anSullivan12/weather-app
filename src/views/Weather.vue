@@ -8,7 +8,6 @@
 <script>
 import OneDay from '@/components/OneDay.vue';
 import WeatherService from '@/services/WeatherService';
-import moment from 'moment';
 
 export default {
   name: 'Weather',
@@ -28,11 +27,6 @@ export default {
       .catch((error) => {
         console.log(error.response);
       });
-  },
-  filters: {
-    formatDate(value) {
-      return moment(String(value)).format('MM/DD/YYYY hh:mm');
-    },
   },
 };
 </script>
