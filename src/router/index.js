@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import WeatherShow from '../views/WeatherShow.vue';
 
 Vue.use(VueRouter);
 
@@ -13,6 +14,12 @@ const routes = [
     path: '/forecast',
     name: 'Weather',
     component: () => import('../views/Weather.vue'),
+  },
+  {
+    path: '/weather/:zip',
+    name: 'weather-show',
+    component: WeatherShow,
+    props: true,
   },
 ];
 
