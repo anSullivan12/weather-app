@@ -1,7 +1,6 @@
 <template>
   <div>
     <OneDay v-for="(detail, index) in details" :key="index" :detail="detail"/>
-    {{ details }}
   </div>
 </template>
 
