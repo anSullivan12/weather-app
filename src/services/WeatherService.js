@@ -13,4 +13,7 @@ export default {
   getDetails(zip) {
     return apiClient.get('' + zip);
   },
+  getForecastedDetails(zip, hours) {
+    return apiClient.get('' + zip + hours);
+  },
 };
