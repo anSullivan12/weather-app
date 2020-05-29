@@ -10,7 +10,7 @@ const apiClient = axios.create({
 });
 
 export default {
-  getDetails() {
-    return apiClient.get('44720');
+  getDetails(zip) {
+    return apiClient.get('' + zip);
   },
 };
