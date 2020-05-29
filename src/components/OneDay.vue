@@ -4,8 +4,7 @@
     <div class="mui-row mui-panel">
       <div class="mui-col-md-8 mui--text-left">
         <p class="mui-subhead">{{ detail.city_name }}, {{ detail.state_code }}</p>
-        <span class="material-icons">wb_sunny</span>
-        <img v-bind:src="icon">
+        <img :src="require('@/assets/icons/' + detail.weather.icon + '.png')">
         <p class="mui--text-body1">{{ detail.weather.description }}</p>
         <p class="mui--text-body1">Chance of Rain {{ detail.precip }}%</p>
         <p class="mui--text-body1">Cloud Coverage {{ detail.clouds }}%</p>
@@ -23,8 +22,11 @@ export default {
   props: {
     detail: Object,
   },
-  data() {
-    icon: '@/assets/icons/{{ detail.weather.icon }}';
-  },
 };
 </script>
+
+<style scoped>
+img {
+  width: 60px;
+}
+</style>
