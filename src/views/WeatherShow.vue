@@ -1,16 +1,16 @@
 <template>
-  <div class="mui-container weather">
-    <h1 class="mui--text-display1">Local Weather</h1>
-    <OneDay v-for="(detail, index) in details" :key="detail.index" :detail="detail"/>
+  <div>
+    <OneDay v-for="(detail, index) in details" :key="index" :detail="detail"/>
   </div>
 </template>
 
 <script>
-import OneDay from '@/components/OneDay.vue';
 import WeatherService from '@/services/WeatherService';
+import OneDay from '@/components/OneDay.vue';
 
 export default {
-  name: 'Weather',
+  name: 'WeatherShow',
+  props: ['zip'],
   components: {
     OneDay,
   },
@@ -20,7 +20,7 @@ export default {
     };
   },
   created() {
-    WeatherService.getDetails()
+    WeatherService.getDetails(this.zip)
       .then((response) => {
         this.details = response.data.data;
       })

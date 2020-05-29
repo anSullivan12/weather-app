@@ -4,7 +4,7 @@
       <input type="text" name="zip" v-model="zip">
       <label>Zip Code</label>
     </div>
-    <button type="submit" class="mui-btn mui-btn--primary" @click.stop.prevent="submitZip()">Submit</button>
+    <button type="submit" class="mui-btn mui-btn--primary" @click.stop.prevent="submitZip(zip)">Submit</button>
   </form>
 </template>
 
@@ -12,13 +12,13 @@
 export default {
   data() {
     return {
-      zip: null,
+      zip: '',
     };
   },
   methods: {
-    submitZip() {
-      console.log(this.zip);
-      this.$router.push({ name: 'Weather' });
+    submitZip(zip) {
+      console.log(zip);
+      this.$router.push({ path: `/weather/${zip}` });
     },
   },
 };
