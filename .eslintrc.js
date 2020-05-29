@@ -16,5 +16,6 @@ module.exports = {
     "vue/no-unused-vars": "off",
     'max-len': 0,
     'prefer-template': 'off',
+    'no-useless-concat': 'off',
   },
 };
