@@ -11,11 +11,6 @@ const routes = [
     component: () => import('../views/Home.vue'),
   },
   {
-    path: '/forecast',
-    name: 'Weather',
-    component: () => import('../views/Weather.vue'),
-  },
-  {
     path: '/weather/:zip',
     name: 'weather-show',
     component: WeatherShow,
