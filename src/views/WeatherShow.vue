@@ -1,11 +1,13 @@
 <template>
   <div>
     <h1 class="mui--text-headline">Your Local Weather</h1>
-    <OneDay v-for="(detail, index) in details" :key="index" :detail="detail"/>
+    <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
+    <div v-show="selectedTab === 'Three Day Forecast'">Three Day Forecast</div>
+    <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
     <button class="mui-btn mui-btn--primary tab"
             :class="{ activeTab: selectedTab === tab }"
             v-for="(tab, index) in tabs"
-            :key="index"
+            :key="index + 'label'"
             @click="selectedTab = tab">
             {{ tab }}</button>
   </div>
