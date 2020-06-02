@@ -1,6 +1,7 @@
 <template>
   <div class="mui-col-md-3 mui-panel">
     <p class="mui--text-caption">{{ forecast.datetime }}</p>
+    <p class="mui--text-caption">{{ forecast.pod }}</p>
     <h2 class="mui--text-display3">{{ forecast.temp }}&deg;</h2>
     <p class="mui--text-body2">Feels like {{ forecast.app_temp }}&deg;</p>
     <img :src="require('@/assets/icons/' + forecast.weather.icon + '.png')">
