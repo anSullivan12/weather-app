@@ -19,17 +19,22 @@
 
 <script>
 import OneDay from '@/components/OneDay.vue';
+import ThreeDay from '@/components/ThreeDay.vue';
 import WeatherService from '@/services/WeatherService';
 
 export default {
   name: 'WeatherShow',
-  props: ['zip'],
+  props: [
+    'zip',
+  ],
   components: {
     OneDay,
+    ThreeDay,
   },
   data() {
     return {
       details: [],
+      forecasts: [],
       tabs: ['One Day Forecast', 'Three Day Forecast', 'Five Day Forecast'],
       selectedTab: 'One Day Forecast',
     };
