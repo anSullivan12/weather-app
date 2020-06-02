@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1 class="mui--text-headline">Your Local Weather</h1>
-    <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
-    <div v-show="selectedTab === 'Three Day Forecast'">Three Day Forecast</div>
+    <div class="mui-container">
+      <div class="mui-row mui-panel">
+        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
+        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index" :forecast="forecast" />
+      </div>
+    </div>
     <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
     <button class="mui-btn mui-btn--primary tab"
             :class="{ activeTab: selectedTab === tab }"

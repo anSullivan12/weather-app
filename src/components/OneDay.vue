@@ -1,6 +1,6 @@
 <template>
-  <div class="mui-container">
-    <div class="mui-row mui-panel">
+  <div>
+    <div class="mui-row">
       <div class="mui-col-md-8 mui--text-left">
         <p class="mui-subhead">{{ detail.city_name }}, {{ detail.state_code }}</p>
         <img :src="require('@/assets/icons/' + detail.weather.icon + '.png')">
