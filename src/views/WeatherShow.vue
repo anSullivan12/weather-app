@@ -1,22 +1,46 @@
 <template>
   <div>
-    <OneDay v-for="(detail, index) in details" :key="index" :detail="detail"/>
+    <h1 class="mui--text-headline">Your Local Weather</h1>
+    <div class="mui-container">
+      <div class="mui-row mui-panel">
+        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
+        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index" :forecast="forecast" />
+        <FiveDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index" :item="item" />
+      </div>
+    </div>
+    <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
+    <button class="mui-btn mui-btn--primary tab"
+            :class="{ activeTab: selectedTab === tab }"
+            v-for="(tab, index) in tabs"
+            :key="index + 'label'"
+            @click="selectedTab = tab">
+            {{ tab }}</button>
   </div>
 </template>
 
 <script>
-import WeatherService from '@/services/WeatherService';
 import OneDay from '@/components/OneDay.vue';
+import ThreeDay from '@/components/ThreeDay.vue';
+import FiveDay from '@/components/FiveDay.vue';
+import WeatherService from '@/services/WeatherService';
 
 export default {
   name: 'WeatherShow',
-  props: ['zip'],
+  props: [
+    'zip',
+  ],
   components: {
     OneDay,
+    ThreeDay,
+    FiveDay,
   },
   data() {
     return {
       details: [],
+      forecasts: [],
+      items: [],
+      tabs: ['One Day Forecast', 'Three Day Forecast', 'Five Day Forecast'],
+      selectedTab: 'One Day Forecast',
     };
   },
   created() {
@@ -27,6 +51,26 @@ export default {
       .catch((error) => {
         console.log(error.response);
       });
+    WeatherService.getThreeDayForecastDetails(this.zip)
+      .then((response) => {
+        this.forecasts = response.data.data;
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    WeatherService.getFiveDayForecastDetails(this.zip)
+      .then((response) => {
+        this.items = response.data.data;
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   },
 };
 </script>
+
+<style scoped>
+.activeTab {
+  background-color: #FF4081;
+}
+</style>
