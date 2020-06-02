@@ -42,6 +42,13 @@ export default {
       .catch((error) => {
         console.log(error.response);
       });
+    WeatherService.getThreeDayForecastDetails(this.zip)
+      .then((response) => {
+        this.forecasts = response.data.data;
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   },
 };
 </script>
