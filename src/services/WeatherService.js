@@ -18,11 +18,23 @@ const apiClientThreeDayForecast = axios.create({
   },
 });
 
+const apiClientFiveDayForecast = axios.create({
+  baseURL: 'https://api.weatherbit.io/v2.0/forecast/hourly?units=I&country=US&key=25201b6605424961868883102857e8b9&dhours=120&postal_code=',
+  withCredentials: false,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});
+
 export default {
   getDetails(zip) {
     return apiClient.get('' + zip);
   },
   getThreeDayForecastDetails(zip) {
     return apiClientThreeDayForecast.get('' + zip);
+  },
+  getFiveDayForecastDetails(zip) {
+    return apiClientFiveDayForecast.get('' + zip);
   },
 };
