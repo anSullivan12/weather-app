@@ -17,5 +17,6 @@ module.exports = {
     'max-len': 0,
     'prefer-template': 'off',
     'no-useless-concat': 'off',
+    'no-unused-vars': 'off',
   },
 };

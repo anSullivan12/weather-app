@@ -3,12 +3,12 @@
     <h1 class="mui--text-headline">Your Local Weather</h1>
     <div class="mui-container">
       <div class="mui-row mui-panel">
-        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
-        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index" :forecast="forecast" />
-        <FiveDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index" :item="item" />
+        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index + 'daily'" :detail="detail"/>
+        <MultiDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index + 'three'" :forecast="forecast" />
+        <MultiDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
       </div>
     </div>
-    <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
+    <div v-show="selectedTab === 'Five Day Forecast'"></div>
     <button class="mui-btn mui-btn--primary tab"
             :class="{ activeTab: selectedTab === tab }"
             v-for="(tab, index) in tabs"
@@ -20,8 +20,7 @@
 
 <script>
 import OneDay from '@/components/OneDay.vue';
-import ThreeDay from '@/components/ThreeDay.vue';
-import FiveDay from '@/components/FiveDay.vue';
+import MultiDay from '@/components/MultiDay.vue';
 import WeatherService from '@/services/WeatherService';
 
 export default {
@@ -31,8 +30,7 @@ export default {
   ],
   components: {
     OneDay,
-    ThreeDay,
-    FiveDay,
+    MultiDay,
   },
   data() {
     return {
