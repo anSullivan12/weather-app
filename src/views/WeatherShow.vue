@@ -4,8 +4,8 @@
     <div class="mui-container">
       <div class="mui-row mui-panel">
         <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index + 'daily'" :detail="detail"/>
-        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index + 'three'" :forecast="forecast" />
-        <ThreeDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
+        <MultiDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index + 'three'" :forecast="forecast" />
+        <MultiDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
       </div>
     </div>
     <div v-show="selectedTab === 'Five Day Forecast'"></div>
@@ -20,7 +20,7 @@
 
 <script>
 import OneDay from '@/components/OneDay.vue';
-import ThreeDay from '@/components/ThreeDay.vue';
+import MultiDay from '@/components/MultiDay.vue';
 import WeatherService from '@/services/WeatherService';
 
 export default {
@@ -30,7 +30,7 @@ export default {
   ],
   components: {
     OneDay,
-    ThreeDay,
+    MultiDay,
   },
   data() {
     return {
