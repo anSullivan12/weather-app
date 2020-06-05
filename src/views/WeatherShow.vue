@@ -3,9 +3,9 @@
     <h1 class="mui--text-headline">Your Local Weather</h1>
     <div class="mui-container">
       <div class="mui-row mui-panel">
-        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index" :detail="detail"/>
-        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index" :forecast="forecast" />
-        <ThreeDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index" :item="item" />
+        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index + 'daily'" :detail="detail"/>
+        <ThreeDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index + 'three'" :forecast="forecast" />
+        <ThreeDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
       </div>
     </div>
     <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
