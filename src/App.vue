@@ -18,6 +18,13 @@ export default {
       theme: localStorage.getItem('theme'),
     };
   },
+  created() {
+    if (this.theme === 'light') {
+      console.log('user has light theme selected');
+    } else {
+      document.body.setAttribute('class', 'darkBody');
+    }
+  },
   methods: {
     toggleTheme() {
       if (this.theme === 'dark') {
