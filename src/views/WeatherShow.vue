@@ -8,7 +8,7 @@
         <ThreeDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
       </div>
     </div>
-    <div v-show="selectedTab === 'Five Day Forecast'">Five Day Forecast</div>
+    <div v-show="selectedTab === 'Five Day Forecast'"></div>
     <button class="mui-btn mui-btn--primary tab"
             :class="{ activeTab: selectedTab === tab }"
             v-for="(tab, index) in tabs"
