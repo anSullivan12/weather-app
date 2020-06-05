@@ -6,7 +6,7 @@
     </div>
     <router-view/>
     <div>
-      <button class="mui-btn mui-btn--raised mui-btn--accent" :title="theme == 'dark' ? 'Dark Theme' : 'Light Theme'" @click="toggleTheme()">Theme</button>
+      <button class="mui-btn mui-btn--raised mui-btn--danger" :title="theme == 'dark' ? 'Dark Theme' : 'Light Theme'" @click="toggleTheme()">Theme</button>
     </div>
   </div>
 </template>
