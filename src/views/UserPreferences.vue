@@ -11,7 +11,7 @@
         </div>
         <div class="mui-radio">
           <label>
-            <input type="radio" name="dark" id="dark" value="dark" v-model="colorPref" @click="switchTheme()">
+            <input type="radio" name="dark" id="dark" value="dark" v-model="colorPref" @click="switchTheme(dark)">
             Dark
           </label>
         </div>
@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       colorPref: '',
+      dark: '',
     };
   },
   mounted() {
@@ -40,18 +41,21 @@ export default {
   },
   methods: {
     switchTheme(dark) {
-      const head = document.getElementsByTagName('head');
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'css/darktheme.css';
+      // const color = localStorage.getItem('colorPref');
+      // const head = document.getElementsByTagName('head');
+      // const link = document.createElement('link');
+      // link.rel = 'stylesheet';
+      // link.type = 'text/css';
+      // link.href = 'css/darktheme.css';
 
-      if (localStorage.colorPref === dark) {
+      if (dark) {
         // add the dark theme CSS
-        head.appendChild(link);
+        // head.appendChild(link);
+        console.log('DARK THEME');
       } else {
         // remove dark theme CSS
-        head.removeChild(link);
+        // head.removeChild(link);
+        console.log('LIGHT THEME!');
       }
     },
   },
