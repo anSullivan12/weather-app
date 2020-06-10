@@ -3,7 +3,7 @@
     <h1 class="mui--text-headline">Your Local Weather</h1>
     <div class="mui-container">
       <div class="mui-row mui-panel">
-        <OneDay v-show="selectedTab === 'One Day Forecast'" v-for="(detail, index) in details" :key="index + 'daily'" :detail="detail"/>
+        <OneDay v-show="selectedTab === 'Current Weather'" v-for="(detail, index) in details" :key="index + 'daily'" :detail="detail"/>
         <MultiDay v-show="selectedTab === 'Three Day Forecast'" v-for="(forecast, index) in forecasts" :key="index + 'three'" :forecast="forecast" />
         <MultiDay v-show="selectedTab === 'Five Day Forecast'" v-for="(item, index) in items" :key="index + 'five'" :forecast="item" />
       </div>
@@ -37,8 +37,8 @@ export default {
       details: [],
       forecasts: [],
       items: [],
-      tabs: ['One Day Forecast', 'Three Day Forecast', 'Five Day Forecast'],
-      selectedTab: 'One Day Forecast',
+      tabs: ['Current Weather', 'Three Day Forecast', 'Five Day Forecast'],
+      selectedTab: 'Current Weather',
     };
   },
   created() {
