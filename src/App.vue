@@ -52,6 +52,9 @@ body.darkBody {
     border-bottom: 1px solid rgba(255,255,255,.26);
     color: #FAFAFA;
   }
+  .mui-textfield--float-label>label {
+    color: #FAFAFA;
+  }
   .mui-panel {
     background-color: #424242;
     box-shadow: 0 2px 2px 0 rgba(255,255,255,.16), 0 0 2px 0 rgba(255,255,255,.12);
